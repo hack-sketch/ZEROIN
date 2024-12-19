@@ -1,0 +1,47 @@
+{% extends "register_home.html" %}
+{% block title %}Register Sponsor{% endblock %}
+{% block content %}
+    <div class="container">
+        <h2>Register as Sponsor</h2>
+        <form method="POST" novalidate>
+            {{ form.hidden_tag() }}
+            <div class="form-group">
+                {{ form.username.label(class="form-control-label") }}
+                {{ form.username(class="form-control") }}
+            </div>
+            <div class="form-group">
+                {{ form.email.label(class="form-control-label") }}
+                {{ form.email(class="form-control") }}
+            </div>
+            <div class="form-group">
+                {{ form.company_name.label(class="form-control-label") }}
+                {{ form.company_name(class="form-control") }}
+            </div>
+            <div class="form-group">
+                {{ form.industry.label(class="form-control-label") }}
+                {{ form.industry(class="form-control") }}
+            </div>
+            <div class="form-group">
+                {{ form.budget.label(class="form-control-label") }}
+                {{ form.budget(class="form-control") }}
+            </div>
+            <div class="form-group">
+                {{ form.password.label(class="form-control-label") }}
+                {{ form.password(class="form-control") }}
+            </div>
+            <div class="form-group">
+                {{ form.confirm_password.label(class="form-control-label") }}
+                {{ form.confirm_password(class="form-control") }}
+            </div>
+            <div>
+                {% if error %}
+                <p style="color:red">{{ error }}</p>
+                {% endif %}
+            </div>
+            <div class="form-group">
+                {{ form.submit(class="btn btn-primary") }}
+            </div>
+
+        </form>
+    </div>
+{% endblock %}

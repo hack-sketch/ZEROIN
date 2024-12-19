@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %}Negotiate Payment{% endblock %}
+{% block content %}
+<h1>Negotiate Payment</h1>
+<form method="POST" action="">
+    <div class="form-group">
+        <label for="payment_amount">New Payment Amount</label>
+        <input type="number" class="form-control" name="payment_amount" value="{{ ad_request.payment_amount }}" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+{% endblock %}

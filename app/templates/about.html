@@ -1,0 +1,11 @@
+
+{% if current_user.is_authenticated %}
+    {% extends "base.html" %}
+{% else %}
+    {% extends "login_home.html" %}
+{% endif %}
+    {% block title %}About{% endblock %}
+        {% block content %}
+        <h1>About the Application</h1>
+        <p class="lead">Connect with the best influencers to advertise your product or service, or become an influencer and start earning by promoting products you love.</p>
+        {% endblock %}

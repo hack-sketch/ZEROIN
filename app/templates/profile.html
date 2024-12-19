@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block title %}Profile{% endblock %}
+{% block content %}
+<h1>Edit Profile</h1>
+<form method="POST" action="{{ url_for('profile')}}" novalidate>
+    {{ form.hidden_tag() }}
+    {% if user.role == 'influencer'%}
+        <div class="form-group">
+            {{ form.name.label(class="form-label") }}
+            {{ form.name(class="form-control") }}
+        </div>
+    {% endif %}      
+    <div class="form-group">
+        {{ form.username.label(class="form-label") }}
+        {{ form.username(class="form-control") }}
+    </div>
+    
+    <div class="form-group">
+        {{ form.email.label(class="form-label") }}
+        {{ form.email(class="form-control") }}
+    </div>
+    {% if user.role == 'sponsor'%}
+        <div class="form-group">
+            {{ form.company_name.label(class="form-label") if form.company_name else "" }}
+            {{ form.company_name(class="form-control") if form.company_name else "" }}
+        </div>
+    {% elif user.role == 'influencer' %}
+        <div class="form-group">
+            {{ form.social_media.label(class="form-label") }}
+            {{ form.social_media(class="form-control") }}
+        </div>
+        <div class="form-group">
+            {{ form.category.label(class="form-label") }}
+            {{ form.category(class="form-control") }}
+        </div>
+    {% endif %}
+    <div>
+        {% if msg %}
+        <p style="color:green">{{ msg }}</p>
+        {% endif %}
+    </div>
+    <div class="form-group">
+        {{ form.submit(class="btn btn-primary") }}
+    </div>
+</form>
+{% endblock %}

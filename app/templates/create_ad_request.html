@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block title %}Create Ad Request{% endblock title %}
+{% block content %}
+    {% if endpoint == '/sponsor/ad_request/new' %}
+        <h1>Create Ad Request</h1>
+    {% else %}
+        <h1>Update Ad Request</h1>
+    {% endif %}
+<form method="POST" action="">
+    {{ form.hidden_tag() }}
+    <div class="form-group">
+        {{ form.campaign_id.label(class="form-control-label") }}
+        {{ form.campaign_id(class="form-control form-control-lg") }}
+    </div>
+    <div class="form-group">
+        {{ form.influencer_id.label(class="form-control-label") }}
+        {{ form.influencer_id(class="form-control form-control-lg") }}
+    </div>
+    <div class="form-group">
+        {{ form.messages.label(class="form-control-label") }}
+        {{ form.messages(class="form-control form-control-lg") }}
+    </div>
+    <div class="form-group">
+        {{ form.requirements.label(class="form-control-label") }}
+        {{ form.requirements(class="form-control form-control-lg") }}
+    </div>
+    <div class="form-group">
+        {{ form.payment_amount.label(class="form-control-label") }}
+        {{ form.payment_amount(class="form-control form-control-lg") }}
+    </div>
+    <div class="form-group">
+        {% if endpoint == '/sponsor/ad_request/new' %}
+            {{ form.submit(class="btn btn-primary") }}
+        {% else %}            
+            {{ form.update(class="btn btn-primary") }}
+        {% endif %}            
+    </div>
+</form>
+{% endblock content %}

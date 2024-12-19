@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block title %}Flagged Users{% endblock %}
+{% block content %}
+<h1>Flagged Users</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for entry, entry_type in flagged_entries %}
+        <tr>
+            <td>
+                {% if entry_type == 'sponsor' %}
+                    {{ entry.company_name }}
+                {% elif entry_type == 'influencer' %}
+                    {{ entry.name }}
+                {% elif entry_type == 'campaign' %}  
+                    {{ entry.name }}   
+                {% endif %}
+            </td>
+            <td>{{ entry_type }}</td>
+            <td>
+                <a href="{{ url_for('remove_flag', entry_id=entry.id, filter=entry_type) }}" class="btn btn-danger">Remove Flag</a>
+            </td>
+        </tr>
+        {% else %}
+        <tr>
+            <td colspan="3">No flagged entries found</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

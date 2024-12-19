@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block title %}Search Influencers{% endblock %}
+{% block content %}
+<h1>Search Influencers</h1>
+<form method="GET" action="{{ url_for('search_influencers') }}">
+    <div class="form-group">
+        <input type="text" class="form-control" name="query" placeholder="Search by niche...">
+    </div>
+    <button type="submit" class="btn btn-primary">Search</button>
+</form>
+
+<table class="table mt-4">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Platform</th>
+            <th>Reach</th>
+            <th>Category</th>
+            <th>Flagged</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for influencer in influencers %}
+        <tr>
+            <td>{{ influencer.id }}</td>
+            <td>{{ influencer.name }}</td>
+            <td>{{ influencer.user.email }}</td>
+            <td>{{ influencer.niche }}</td>
+            <td>{{ influencer.reach }}</td>
+            <td>{{ influencer.category }}</td>
+            <td>{{ influencer.flagged }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
+
+

@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}Influencer Dashboard{% endblock %}
+{% block content %}
+<h1>Influencer Dashboard</h1>
+<div class="dashboard">
+    <div class="card">
+        <h2>Profile</h2>
+        <a href="{{ url_for('profile') }}" class="btn btn-primary">Edit Profile</a>
+    </div>
+    <div class="card">
+        <h2>Ad Requests</h2>
+        <a href="{{ url_for('view_ad_requests') }}" class="btn btn-primary">View Ad Requests</a>
+        <a href="{{ url_for('accepted_ad_requests') }}" class="btn btn-primary">Accepted Ad Requests</a>
+        <a href="{{ url_for('rejected_ad_requests') }}" class="btn btn-primary">Rejected Ad Requests</a>
+        <a href="{{ url_for('search_campaigns') }}" class="btn btn-secondary">Search Public Campaigns</a>
+    </div>
+</div>
+{% endblock %}

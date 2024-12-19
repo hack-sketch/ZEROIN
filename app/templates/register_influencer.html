@@ -1,0 +1,51 @@
+{% extends "register_home.html" %}
+{% block title %}Register Influencer{% endblock %}
+{% block content %}
+    <div class="container">
+        <h2>Register as Influencer</h2>
+        <form method="POST">
+            {{ form.hidden_tag() }}
+            <div class="form-group">
+                {{ form.username.label(class="form-control-label") }}
+                {{ form.username(class="form-control") }}
+            </div>
+            <div class="form-group">
+                {{ form.email.label(class="form-control-label") }}
+                {{ form.email(class="form-control") }}
+            </div>
+            <div class="form-group">
+                {{ form.name.label(class="form-control-label") }}
+                {{ form.name(class="form-control") }}
+            </div>
+            <div class="form-group">
+                {{ form.niche.label(class="form-control-label") }}
+                {{ form.niche(class="form-control") }}
+            </div>
+            <div class="form-group">
+                {{ form.category.label(class="form-control-label") }}
+                {{ form.category(class="form-control") }}
+            </div>
+            <div class="form-group">
+                {{ form.reach.label(class="form-control-label") }}
+                {{ form.reach(class="form-control") }}
+            </div>
+            <div class="form-group">
+                {{ form.password.label(class="form-control-label") }}
+                {{ form.password(class="form-control") }}
+            </div>
+            <div class="form-group">
+                {{ form.confirm_password.label(class="form-control-label") }}
+                {{ form.confirm_password(class="form-control") }}
+            </div>
+            <div>
+                {% if error %}
+                <p style="color:red">{{ error }}</p>
+                {% endif %}
+            </div>
+            <div class="form-group">
+                {{ form.submit(class="btn btn-primary") }}
+            </div>
+        </form>
+    </div>
+{% endblock %}
+

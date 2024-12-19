@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block title %}Admin Dashboard{% endblock %}
+{% block content %}
+<h1>Admin Dashboard</h1>
+<div class="dashboard">
+    <div class="card">
+        <h2>Profile</h2>
+        <a href="{{ url_for('profile') }}" class="btn btn-primary">Edit Profile</a>
+    </div>
+    <div class="card">
+        <h2>INFO</h2>
+        <a href="{{ url_for('admin_dashboard_info') }}" class="btn btn-primary">Info</a>
+    </div>
+    <div class="card">
+        <h2>Search</h2>
+        <a href="{{ url_for('admin_search') }}" class="btn btn-primary">Sponsors/Influencers/Campaigns</a>
+    </div>
+    <div class="card">
+        <h2>Flagged</h2>
+        <a href="{{ url_for('flagged_users') }}" class="btn btn-primary">Sponsors/Influencers/Campaigns</a>
+    </div>
+    <div class="card">
+        <h2>Statistics</h2>
+        <a href="{{ url_for('chart') }}" class="btn btn-primary">Registration Statistics</a>
+    </div>
+</div>
+{% endblock %}
